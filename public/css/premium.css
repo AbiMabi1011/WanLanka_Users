@@ -1,0 +1,159 @@
+/* Premium WanLanka Styles - Ultra Modern & 3D */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-glow: rgba(42, 157, 143, 0.4);
+    --secondary-glow: rgba(38, 70, 83, 0.4);
+    --bg-dark: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --border-color: rgba(0, 0, 0, 0.05);
+    --text-dark: #2c3e50;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+/* 3D Perspective Container */
+.perspective-container {
+    perspective: 1000px;
+}
+
+/* 3D Tilt Card Effect */
+.card-3d {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+    transform-style: preserve-3d;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+}
+
+.card-3d:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 20px var(--primary-glow);
+    border-color: rgba(0, 204, 170, 0.5);
+}
+
+.card-3d-content {
+    transform: translateZ(50px); /* Lifts content off the card */
+}
+
+/* Neon Glow Text */
+.text-neon {
+    color: var(--secondary-glow);
+    text-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Animated Gradient Background */
+.bg-gradient-animate {
+    background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #e2e8f0, #ffffff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Animation */
+.float-anim {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Glass Buttons */
+.btn-premium {
+    position: relative;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 600;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.btn-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn-premium:hover::before {
+    left: 100%;
+}
+
+.btn-premium:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(to right, #00ccaa, #ffcc00);
+    z-index: 10001;
+    transition: width 0.1s ease;
+}
+
+/* 3D Image Hover */
+.img-3d-container {
+    overflow: hidden;
+    border-radius: 20px;
+    perspective: 1000px;
+}
+
+.img-3d-container img {
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.img-3d-container:hover img {
+    transform: scale(1.1) rotate3d(1, 1, 0, 5deg);
+}
+
+/* Section Transitions */
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, var(--bg-dark), transparent);
+    z-index: 2;
+}
