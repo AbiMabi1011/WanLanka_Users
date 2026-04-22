@@ -1,0 +1,19 @@
+[build]
+  publish = "public"
+  command = "npm install && npm run build"
+
+[build.environment]
+  PHP_VERSION = "8.2"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.php"
+  status = 200
+
+# NOTE: Netlify does not natively support Laravel/PHP backends. 
+# This file is provided to handle static asset builds and basic redirects.
+# To host the FULL WanLanka application (Database + PHP), we recommend:
+# 1. Railway.app (Easiest, Netlify-like for Backends)
+# 2. Render.com
+# 3. Heroku
+# 4. Laravel Forge / DigitalOcean
